@@ -1,0 +1,145 @@
+/* Farben für Darkmode*/
+:root {
+    --color-background: #f7f1e3;
+    --color-text: #2c2c54;
+    --color-headline: #33d9b2;
+    --color-link: #ff5252;
+}
+
+
+h1 {
+    color: var(--color-headline);
+    font-family: 'Lobster', cursive;
+    font-size: 4em;
+}
+
+a {
+    color: var(--color-link);
+}
+
+p {
+    color: var(--color-text);
+}
+
+body {
+    background: url('../img/background.jpg') no-repeat center fixed;
+    background-size: cover;
+    height: 100vh;
+
+}
+
+#container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.content {
+    text-align: center;
+    margin: auto;
+    box-shadow: 0 1em 4em 0 rgba(0, 0, 0, 0.2);
+    transition: 2s;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.4);
+    font-size: 1em;
+    color: white;
+}
+
+input[type=text] {
+    padding: 1em;
+    margin: 10em 0;
+    border: 0;
+    border-bottom: 0.1em solid #eee;
+    box-shadow: 0 0 1.5em 0.2em rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+}
+
+select {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 0;
+    box-shadow: 0 0 1.5em 0.2em rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    text-align-last: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 6em;
+    height: 3.4em;
+}
+
+/* Normale Checkbox verstecken */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 3.4em;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 2.6em;
+    width: 2.6em;
+    left: 0.4em;
+    bottom: 0.4em;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(2.6em);
+    -ms-transform: translateX(2.6em);
+    transform: translateX(2.6em);
+}
+
+
+/* Smartphone */
+@media (min-width: 320px) {
+    .content {
+        width: 95%;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Tablet */
+@media (min-width: 641px) {
+    .content {
+        width: 80%;
+    }
+    h1 {
+        font-size: 4em;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .content {
+        width: 50%;
+    }
+    h1 {
+        font-size: 6em;
+    }
+}
