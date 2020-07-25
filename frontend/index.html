@@ -10,45 +10,68 @@
 <body>
 <script src="script/IceBall.js" defer></script>
 <script src="script/order.js" defer></script>
+<script src="script/submit.js" defer></script>
 <div id="container">
     <div class="content">
         <h1>Umbertos Eisdiele</h1>
             <canvas id="productCanvas" width="200" height="300">
             </canvas>
-        <form>
+        <form action="" id="form">
             <div>
                 <label class="switch">
-                    <input type="checkbox" id="sundae">
+                    <input type="checkbox" id="sundae" name="sundae">
                     <span class="slider"></span>
                 </label>
             </div>
-
 
             <div id="bowls">
                 <p>
                     <select id="ball1" name="ball1">
                         <option selected value>+</option>
                         <option value="chocolate">Schokolade</option>
-                        <option value="vanillie">Vanille</option>
+                        <option value="vanilla">Vanille</option>
                         <option value="mango">Mango</option>
                         <option value="raspberry">Himbeere</option>
                     </select> <br>
                     <select id="ball2" name="ball2">
                         <option selected value>+</option>
                         <option value="chocolate">Schokolade</option>
-                        <option value="vanillie">Vanille</option>
+                        <option value="vanilla">Vanille</option>
                         <option value="mango">Mango</option>
                         <option value="raspberry">Himbeere</option>
                     </select> <br>
                     <select id="ball3" name="ball3">
                         <option selected value>+</option>
                         <option value="chocolate">Schokolade</option>
-                        <option value="vanillie">Vanille</option>
+                        <option value="vanilla">Vanille</option>
                         <option value="mango">Mango</option>
                         <option value="raspberry">Himbeere</option>
                     </select> <br>
+                    <select id="topping" name="topping">
+                        <option selected value>+</option>
+                        <option value="chocosauce">Schokoladensoße</option>
+                        <option value="sprinkles">Schokostreusel</option>
+                        <option value="cream">Sahne</option>
+                        <option value="smarties">Smarties</option>
+                    </select>
                 </p>
             </div>
+            <div>
+                <h2>Persönliche Daten</h2>
+                <label>
+                    <input type="text" name="firstName" placeholder="Vorname">
+                </label>
+                <label>
+                    <input type="text" name="lastName" placeholder="Nachname">
+                </label>
+                <label>
+                    <input type="tel" name="phone" placeholder="Telefonnummer">
+                </label>
+                <label>
+                    <input type="text" name="address" placeholder="Adresse">
+                </label>
+            </div>
+            <button type="button" id="submitButton">Absenden</button>
         </form>
 
     </div>
