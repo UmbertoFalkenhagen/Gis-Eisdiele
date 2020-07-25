@@ -105,7 +105,6 @@ var shop;
     }
     function setConeMode(_active) {
         coneSelected = _active;
-        console.log("Cone set to: " + _active);
         drawPreview();
     }
     function getColorOfBall(_ballname) {
