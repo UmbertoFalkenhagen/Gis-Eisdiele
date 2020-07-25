@@ -1,0 +1,7 @@
+export enum Topping {
+    CHOCOLATESAUCE = "CHOCOLATESAUCE",
+    SPRINKLES = "SPRINKLES",
+    CREAM = "CREAM",
+    SMARTIES = "SMARTIES",
+    NOTHING = "NOTHING"
+}
