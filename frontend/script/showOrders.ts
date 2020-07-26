@@ -1,4 +1,4 @@
-import {CompleteOrder} from "../../models/CompleteOrder";
+import {CompleteOrder} from "./CompleteOrder";
 
 let serverURL: string = "http://localhost:8100";
 

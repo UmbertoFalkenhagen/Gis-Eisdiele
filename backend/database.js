@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Mongo = require("mongodb");
-const Order_1 = require("../models/Order");
-const PersonalData_1 = require("../models/PersonalData");
-const IceCream_1 = require("../models/IceCream");
-const IceType_1 = require("../models/IceType");
-const IceContainer_1 = require("../models/IceContainer");
-const Topping_1 = require("../models/Topping");
+const Order_1 = require("./models/Order");
+const PersonalData_1 = require("./models/PersonalData");
+const IceCream_1 = require("./models/IceCream");
+const IceType_1 = require("./models/IceType");
+const IceContainer_1 = require("./models/IceContainer");
+const Topping_1 = require("./models/Topping");
 var Database;
 (function (Database) {
     let mongoClient;

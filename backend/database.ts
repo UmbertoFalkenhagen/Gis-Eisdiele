@@ -1,11 +1,11 @@
 import * as Mongo from "mongodb";
 import {ParsedUrlQuery} from "querystring";
-import {Order} from "../models/Order";
-import {PersonalData} from "../models/PersonalData";
-import {IceCream} from "../models/IceCream";
-import {IceType} from "../models/IceType";
-import {IceContainer} from "../models/IceContainer";
-import {Topping} from "../models/Topping";
+import {Order} from "./models/Order";
+import {PersonalData} from "./models/PersonalData";
+import {IceCream} from "./models/IceCream";
+import {IceType} from "./models/IceType";
+import {IceContainer} from "./models/IceContainer";
+import {Topping} from "./models/Topping";
 
 
 export namespace Database {

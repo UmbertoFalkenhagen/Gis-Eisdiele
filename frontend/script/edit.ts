@@ -1,4 +1,4 @@
-import {CompleteOrder} from "../../models/CompleteOrder";
+import {CompleteOrder} from "./CompleteOrder";
 
 let order: CompleteOrder;
 
