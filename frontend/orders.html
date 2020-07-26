@@ -8,40 +8,18 @@
 </head>
 
 <body>
-<script src="script/IceBall.js" defer></script>
-<script src="script/order.js" defer></script>
-<script src="script/submit.js" defer></script>
+<script> var exports = {}; </script> <!-- https://stackoverflow.com/a/43702240 -->
+<script src="../models/IceContainer.js" defer></script>
+<script src="../models/IceType.js" defer></script>
+<script src="../models/Topping.js" defer></script>
+<script src="../models/IceCream.js" defer></script>
+<script src="../models/PersonalData.js" defer></script>
+<script src="../models/Order.js" defer></script>
+<script src="script/showOrders.js" defer></script>
 <div id="container">
     <div class="content">
         <h1>Bestellungen</h1>
-        <table>
-            <tr>
-                <th>Bestellung</th>
-                <th>Name</th>
-                <th>Telefonnummer</th>
-                <th>Adresse</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>1 Schokolade 2 Himbeere in Waffel</td>
-                <td>Max Mustermann</td>
-                <td>07723 xxxxxxxx</td>
-                <td>78120 Furtwangen und so</td>
-                <td><a href="#">EDIT</a></td>
-            </tr>
-            <tr>
-                <td>1 Schokolade 2 Himbeere in Waffel</td>
-                <td>Max Mustermann</td>
-                <td>07723 xxxxxxxx</td>
-                <td>78120 Furtwangen und so</td>
-                <td><a href="#">EDIT</a></td>
-            </tr><tr>
-            <td>1 Schokolade 2 Himbeere in Waffel</td>
-            <td>Max Mustermann</td>
-            <td>07723 xxxxxxxx</td>
-            <td>78120 Furtwangen und so</td>
-            <td><a href="#">EDIT</a></td>
-        </tr>
+        <table id="table">
         </table>
     </div>
 </div>
