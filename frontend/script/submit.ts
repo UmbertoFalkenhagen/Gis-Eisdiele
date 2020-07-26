@@ -1,4 +1,5 @@
-let serverURL = "http://localhost:8100";
+//let serverURL = "http://localhost:8100";
+let serverURL = "https://umbertofalkenhagengis.herokuapp.com";
 let btn = document.getElementById("submitButton");
 let form = <HTMLFormElement>document.getElementById("form");
 btn!.addEventListener("click", () => sendDataToServer());

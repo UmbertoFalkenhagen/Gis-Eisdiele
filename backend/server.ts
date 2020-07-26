@@ -5,7 +5,7 @@ import { Database } from "./database";
 export namespace Server {
 
     //let databaseURL = "mongodb://localhost:27017";
-    let databaseURL = "mongodb+srv://umbertofalkenhagengis:password@umbertofalkenhagengis.yuat8.mongodb.net/test";
+    let databaseURL = "mongodb+srv://umbertofalkenhagengis:gisistgeil@umbertofalkenhagengis.yuat8.mongodb.net/test";
     startServer();
     async function startServer(): Promise<void> {
         console.log("Starting server");
