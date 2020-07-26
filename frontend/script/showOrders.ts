@@ -86,5 +86,5 @@ async function deleteOrder(_id: string) {
     // tslint:disable-next-line: no-any
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     await fetch("http://localhost:8100" + "/delete?" + query);
-    window.location.href = "orders.html";
+    window.location.href = "showOrders.html";
 }

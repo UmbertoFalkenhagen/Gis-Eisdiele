@@ -37,7 +37,7 @@ if (sessionStorage.getItem("editorder")) {
 
 
 } else {
-    window.location.href = "orders.html";
+    window.location.href = "showOrders.html";
 }
 
 async function updateOrder() {
@@ -48,7 +48,7 @@ async function updateOrder() {
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     await fetch("http://localhost:8100" + "/update?" + query);
     sessionStorage.clear();
-    window.location.href = "orders.html";
+    window.location.href = "showOrders.html";
 }
 
 
