@@ -141,6 +141,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    border-spacing: 0;
 }
 
 td, th {
@@ -162,6 +163,9 @@ tr:nth-child(even) {
     h1 {
         font-size: 2.5em;
     }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 }
 
 /* Tablet */
@@ -171,6 +175,9 @@ tr:nth-child(even) {
     }
     h1 {
         font-size: 4em;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
     }
 }
 
