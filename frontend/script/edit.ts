@@ -1,4 +1,5 @@
 import {CompleteOrder} from "./CompleteOrder";
+import {Config} from "../../Config";
 
 let order: CompleteOrder;
 
@@ -19,7 +20,6 @@ if (sessionStorage.getItem("editorder")) {
     let container: HTMLSelectElement = <HTMLSelectElement>document.getElementById("icecontainer");
     container.value = order._icecream._container.toLowerCase();
 
-    //ALternativ jedem eine id zuweisen und dan getElementByID
     let firstName: HTMLInputElement = <HTMLInputElement>document.getElementsByName("firstName")[0];
     firstName.value = order._personalData._firstName;
 
@@ -41,12 +41,11 @@ if (sessionStorage.getItem("editorder")) {
 }
 
 async function updateOrder() {
-    console.log("Altered ORDER!")
     let formData: FormData = new FormData(form);
     formData.append("id", order._id);
     // tslint:disable-next-line: no-any
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    await fetch("http://localhost:8100" + "/update?" + query);
+    await fetch(Config.serverURL + "/update?" + query);
     sessionStorage.clear();
     window.location.href = "showOrders.html?message=3";
 }

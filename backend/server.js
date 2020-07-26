@@ -3,13 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
 const database_1 = require("./database");
+const Config_1 = require("../Config");
 var Server;
 (function (Server) {
     startServer();
     async function startServer() {
         console.log("Starting server");
         console.log("Connecting to DB...");
-        await database_1.Database.connectToDB("mongodb://localhost:27017");
+        await database_1.Database.connectToDB(Config_1.Config.databaseURL);
         let port = Number(process.env.PORT);
         if (!port)
             port = 8100;

@@ -1,6 +1,6 @@
 import {CompleteOrder} from "./CompleteOrder";
+import {Config} from "../../Config";
 
-let serverURL: string = "http://localhost:8100";
 
 loadAllOrders();
 
@@ -21,7 +21,7 @@ orderDiv.appendChild(tableHead);
 let allOrders: CompleteOrder[] = [];
 
 async function loadAllOrders(): Promise<void> {
-    let response: Response = await fetch(serverURL + "/read");
+    let response: Response = await fetch(Config.serverURL + "/read");
     allOrders = await response.json();
     for (let i = 0; i < allOrders.length; i++) {
         allOrders[i]._personalData;

@@ -13,6 +13,10 @@ export namespace Database {
     let mongoClient: Mongo.MongoClient;
     let collection: Mongo.Collection;
 
+    /**
+     * Establish database connection
+     * @param _url
+     */
     export async function connectToDB(_url: string): Promise<void> {
         mongoClient = new Mongo.MongoClient(_url, {useNewUrlParser: true, useUnifiedTopology: true});
         await mongoClient.connect();
@@ -20,12 +24,19 @@ export namespace Database {
         console.log("Database connection", collection != undefined);
     }
 
+    /**
+     * Get all orders from database
+     */
     export async function findAll(): Promise<Order[]> {
         console.log("findAll");
         let cursor: Mongo.Cursor<Order> = await collection.find();
         return cursor.toArray();
     }
 
+    /**
+     * Get a specific order from the database
+     * @param _query
+     */
     export async function findOne(_query: ParsedUrlQuery): Promise<Order> {
         let id: string = <string>_query["id"];
         console.log("searching for _id: " + id);
@@ -33,6 +44,10 @@ export namespace Database {
         return orderPromise;
     }
 
+    /**
+     * Update a specific order from the database
+     * @param _query
+     */
     export async function update(_query: ParsedUrlQuery): Promise<Mongo.UpdateWriteOpResult> {
         let id: string = <string>_query["id"];
         let personalData: PersonalData = new PersonalData(<string>_query.lastName, <string>_query.firstName, <string>_query.phone, <string>_query.address);
@@ -41,6 +56,10 @@ export namespace Database {
         return await collection.replaceOne({_id: new Mongo.ObjectID(id)}, orderToAdd);
     }
 
+    /**
+     * Insert a specific order to the database
+     * @param _query
+     */
     export async function insert(_order: ParsedUrlQuery): Promise<Mongo.InsertOneWriteOpResult<any>> {
         let personalData: PersonalData = new PersonalData(<string>_order.lastName, <string>_order.firstName, <string>_order.phone, <string>_order.address);
         let iceCream: IceCream = new IceCream(getIceBalls(_order), getIceContainer(_order), getTopping(<string>_order.topping));
@@ -49,6 +68,10 @@ export namespace Database {
         return await collection.insertOne(orderToAdd);
     }
 
+    /**
+     * Remove a specific order from the database
+     * @param _query
+     */
     export async function removeOne(_query: ParsedUrlQuery): Promise<Mongo.DeleteWriteOpResultObject> {
         let id: string = <string>_query["id"];
         let objID: Mongo.ObjectId = new Mongo.ObjectId(id);
@@ -56,6 +79,10 @@ export namespace Database {
         return await collection.deleteOne({"_id": objID});
     }
 
+    /**
+     * Returns an array with all IceTypes of given query
+     * @param _order
+     */
     function getIceBalls(_order: ParsedUrlQuery): IceType[] {
         let iceBalls: IceType[] = [];
         let ball1: string = <string>_order.ball1;
@@ -67,6 +94,11 @@ export namespace Database {
         return iceBalls;
     }
 
+    /**
+     * Add an IceType to an Array and returns the updated array
+     * @param _type
+     * @param _array
+     */
     function addIceBallToArray(_type: string, _array: IceType[]): IceType[] {
         let iceBallType = getIceBallType(_type);
         if (iceBallType != IceType.NOTHING) {
@@ -76,6 +108,10 @@ export namespace Database {
 
     }
 
+    /**
+     * Determines which enum is taken as IceType
+     * @param _type
+     */
     function getIceBallType(_type: string): IceType {
         switch (_type) {
             case "chocolate":
@@ -91,6 +127,10 @@ export namespace Database {
         }
     }
 
+    /**
+     * Determines which enum is taken as Topping
+     * @param _type
+     */
     function getTopping(_type: string): Topping {
         switch (_type) {
             case "chocolatesauce":
@@ -104,9 +144,12 @@ export namespace Database {
             default:
                 return Topping.NOTHING;
         }
-
     }
 
+    /**
+     * Get the type of IceContainer specified in the query
+     * @param _order
+     */
     function getIceContainer(_order: ParsedUrlQuery): IceContainer {
         if (_order.sundae) {
             let sundaeOption: string = <string>_order.sundae;

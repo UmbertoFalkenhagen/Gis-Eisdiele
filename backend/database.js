@@ -11,6 +11,10 @@ var Database;
 (function (Database) {
     let mongoClient;
     let collection;
+    /**
+     * Establish database connection
+     * @param _url
+     */
     async function connectToDB(_url) {
         mongoClient = new Mongo.MongoClient(_url, { useNewUrlParser: true, useUnifiedTopology: true });
         await mongoClient.connect();
@@ -18,12 +22,19 @@ var Database;
         console.log("Database connection", collection != undefined);
     }
     Database.connectToDB = connectToDB;
+    /**
+     * Get all orders from database
+     */
     async function findAll() {
         console.log("findAll");
         let cursor = await collection.find();
         return cursor.toArray();
     }
     Database.findAll = findAll;
+    /**
+     * Get a specific order from the database
+     * @param _query
+     */
     async function findOne(_query) {
         let id = _query["id"];
         console.log("searching for _id: " + id);
@@ -31,6 +42,10 @@ var Database;
         return orderPromise;
     }
     Database.findOne = findOne;
+    /**
+     * Update a specific order from the database
+     * @param _query
+     */
     async function update(_query) {
         let id = _query["id"];
         let personalData = new PersonalData_1.PersonalData(_query.lastName, _query.firstName, _query.phone, _query.address);
@@ -39,6 +54,10 @@ var Database;
         return await collection.replaceOne({ _id: new Mongo.ObjectID(id) }, orderToAdd);
     }
     Database.update = update;
+    /**
+     * Insert a specific order to the database
+     * @param _query
+     */
     async function insert(_order) {
         let personalData = new PersonalData_1.PersonalData(_order.lastName, _order.firstName, _order.phone, _order.address);
         let iceCream = new IceCream_1.IceCream(getIceBalls(_order), getIceContainer(_order), getTopping(_order.topping));
@@ -47,6 +66,10 @@ var Database;
         return await collection.insertOne(orderToAdd);
     }
     Database.insert = insert;
+    /**
+     * Remove a specific order from the database
+     * @param _query
+     */
     async function removeOne(_query) {
         let id = _query["id"];
         let objID = new Mongo.ObjectId(id);
@@ -54,6 +77,10 @@ var Database;
         return await collection.deleteOne({ "_id": objID });
     }
     Database.removeOne = removeOne;
+    /**
+     * Returns an array with all IceTypes of given query
+     * @param _order
+     */
     function getIceBalls(_order) {
         let iceBalls = [];
         let ball1 = _order.ball1;
@@ -64,6 +91,11 @@ var Database;
         iceBalls = addIceBallToArray(ball3, iceBalls);
         return iceBalls;
     }
+    /**
+     * Add an IceType to an Array and returns the updated array
+     * @param _type
+     * @param _array
+     */
     function addIceBallToArray(_type, _array) {
         let iceBallType = getIceBallType(_type);
         if (iceBallType != IceType_1.IceType.NOTHING) {
@@ -71,6 +103,10 @@ var Database;
         }
         return _array;
     }
+    /**
+     * Determines which enum is taken as IceType
+     * @param _type
+     */
     function getIceBallType(_type) {
         switch (_type) {
             case "chocolate":
@@ -85,6 +121,10 @@ var Database;
                 return IceType_1.IceType.NOTHING;
         }
     }
+    /**
+     * Determines which enum is taken as Topping
+     * @param _type
+     */
     function getTopping(_type) {
         switch (_type) {
             case "chocolatesauce":
@@ -99,6 +139,10 @@ var Database;
                 return Topping_1.Topping.NOTHING;
         }
     }
+    /**
+     * Get the type of IceContainer specified in the query
+     * @param _order
+     */
     function getIceContainer(_order) {
         if (_order.sundae) {
             let sundaeOption = _order.sundae;

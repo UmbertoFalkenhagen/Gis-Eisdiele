@@ -1,6 +1,7 @@
 import * as Http from "http";
 import * as Url from "url";
 import { Database } from "./database";
+import {Config} from "../Config";
 
 export namespace Server {
 
@@ -8,7 +9,7 @@ export namespace Server {
     async function startServer(): Promise<void> {
         console.log("Starting server");
         console.log("Connecting to DB...");
-        await Database.connectToDB("mongodb://localhost:27017");
+        await Database.connectToDB(Config.databaseURL);
 
         let port: number = Number(process.env.PORT);
         if (!port)
