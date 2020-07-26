@@ -5,6 +5,7 @@ const Url = require("url");
 const database_1 = require("./database");
 var Server;
 (function (Server) {
+    //let databaseURL = "mongodb://localhost:27017";
     let databaseURL = "mongodb+srv://umbertofalkenhagengis:gisistgeil@umbertofalkenhagengis.yuat8.mongodb.net/test";
     startServer();
     async function startServer() {
