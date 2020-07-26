@@ -1,9 +1,8 @@
 import {CompleteOrder} from "./CompleteOrder";
-import {Config} from "../../Config";
 
 let order: CompleteOrder;
-
 if (sessionStorage.getItem("editorder")) {
+    form = <HTMLFormElement>document.getElementById("form");
     order = JSON.parse(<string>sessionStorage.getItem("editorder"));
     console.log(order._id);
 
@@ -45,7 +44,7 @@ async function updateOrder() {
     formData.append("id", order._id);
     // tslint:disable-next-line: no-any
     let query: URLSearchParams = new URLSearchParams(<any>formData);
-    await fetch(Config.serverURL + "/update?" + query);
+    await fetch(serverURL + "/update?" + query);
     sessionStorage.clear();
     window.location.href = "showOrders.html?message=3";
 }

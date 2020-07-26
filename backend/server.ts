@@ -1,15 +1,16 @@
 import * as Http from "http";
 import * as Url from "url";
 import { Database } from "./database";
-import {Config} from "../Config";
 
 export namespace Server {
 
+    //let databaseURL = "mongodb://localhost:27017";
+    let databaseURL = "mongodb+srv://umbertofalkenhagengis:password@umbertofalkenhagengis.yuat8.mongodb.net/test";
     startServer();
     async function startServer(): Promise<void> {
         console.log("Starting server");
         console.log("Connecting to DB...");
-        await Database.connectToDB(Config.databaseURL);
+        await Database.connectToDB(databaseURL);
 
         let port: number = Number(process.env.PORT);
         if (!port)
