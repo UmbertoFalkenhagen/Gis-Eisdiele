@@ -5,9 +5,6 @@ class Order {
         this._personalData = personalData;
         this._icecream = icecream;
     }
-    get id() {
-        return this._id;
-    }
     get personalData() {
         return this._personalData;
     }
