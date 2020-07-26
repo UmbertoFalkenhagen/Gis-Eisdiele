@@ -8,10 +8,7 @@ var Server;
     startServer();
     async function startServer() {
         console.log("Starting server");
-        //DB Connection
         console.log("Connecting to DB...");
-        //TODO CHANGE!
-        //await Database.connectToDB("mongodb+srv://user:fBag3TZ4wiw6yRiq@cluster0-omyol.mongodb.net/dbname?retryWrites=true&w=majority");
         await database_1.Database.connectToDB("mongodb://localhost:27017");
         let port = Number(process.env.PORT);
         if (!port)
@@ -28,9 +25,6 @@ var Server;
         let urlWithQuery = Url.parse(_request.url, true);
         _response.setHeader("Access-Control-Allow-Origin", "*");
         switch (urlWithQuery.pathname) {
-            case "/html":
-                createHtmlResponse(_response, urlWithQuery.query);
-                break;
             case "/update":
                 DbJsonResponse(_response, await database_1.Database.update(urlWithQuery.query));
                 break;
@@ -51,14 +45,6 @@ var Server;
                 _response.write(_request.url);
         }
         _response.end();
-    }
-    function createHtmlResponse(_response, _query) {
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        let resultHTML = "";
-        for (let q in _query) {
-            resultHTML += `<p>${q}: ${_query[q]}</p>`;
-        }
-        _response.write(resultHTML);
     }
     // tslint:disable-next-line: no-any
     function DbJsonResponse(_response, _result) {

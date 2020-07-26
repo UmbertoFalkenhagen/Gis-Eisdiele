@@ -118,7 +118,6 @@ var Database;
                 return IceContainer_1.IceContainer.SUNDAE;
             }
         }
-        console.log("Container = " + _order.sundae);
     }
 })(Database = exports.Database || (exports.Database = {}));
 //# sourceMappingURL=database.js.map
