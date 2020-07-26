@@ -176,9 +176,6 @@ tr:nth-child(even) {
     h1 {
         font-size: 4em;
     }
-    table, thead, tbody, th, td, tr {
-        display: block;
-    }
 }
 
 /* Desktop */
