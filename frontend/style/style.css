@@ -45,6 +45,17 @@ body {
     color: white;
 }
 
+.message {
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 1em 4em 0 rgba(0, 0, 0, 0.2);
+    transition: 2s;
+    border-radius: 5px;
+    background-color: rgba(51,217,178,0.5);
+    font-size: 1em;
+    color: white;
+}
+
 form, table {
     padding-bottom: 1em;
 }

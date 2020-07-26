@@ -35,7 +35,7 @@ async function findAll(): Promise<void> {
 
         let topping: string = "";
         if(_completeOrder._icecream._topping != "NOTHING"){
-           topping =  " mit " + _completeOrder._icecream._topping;
+           topping =  " with " + _completeOrder._icecream._topping;
         }
 
         let iceCream: HTMLTableCellElement = document.createElement("td");
@@ -86,5 +86,5 @@ async function deleteOrder(_id: string) {
     // tslint:disable-next-line: no-any
     let query: URLSearchParams = new URLSearchParams(<any>formData);
     await fetch("http://localhost:8100" + "/delete?" + query);
-    window.location.href = "showOrders.html";
+    window.location.href = "showOrders.html?message=2";
 }
