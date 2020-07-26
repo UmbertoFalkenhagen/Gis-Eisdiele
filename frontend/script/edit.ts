@@ -1,5 +1,5 @@
 import {CompleteOrder} from "./CompleteOrder";
-
+let serverURL = "https://umbertofalkenhagengis.herokuapp.com";
 let order: CompleteOrder;
 if (sessionStorage.getItem("editorder")) {
     form = <HTMLFormElement>document.getElementById("form");

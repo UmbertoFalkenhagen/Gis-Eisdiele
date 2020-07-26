@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+let serverURL = "https://umbertofalkenhagengis.herokuapp.com";
 loadAllOrders();
 let table = document.getElementById("table");
 let orderDiv = document.createElement("orderDiv");
