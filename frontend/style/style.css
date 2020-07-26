@@ -13,8 +13,9 @@ h1 {
     font-size: 4em;
 }
 
-a {
+a, a:visited, a:link, a:hover, a:active {
     color: var(--color-link);
+    text-decoration: none;
 }
 
 p {
@@ -46,6 +47,11 @@ body {
 
 form, table {
     padding-bottom: 1em;
+}
+
+button {
+    background-color: #84817a;
+    color: #fff;
 }
 
 button, input[type=text], input[type=tel] {
