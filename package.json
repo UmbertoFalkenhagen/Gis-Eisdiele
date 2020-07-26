@@ -1,0 +1,23 @@
+{
+  "name": "eisdiele",
+  "version": "1.0.0",
+  "description": "eisdiele",
+  "main": "index.js",
+  "dependencies": {
+    "mongodb": "^3.5.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UmbertoFalkenhagen/Gis-Eisdiele.git"
+  },
+  "author": "umbertofalkenhagen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UmbertoFalkenhagen/Gis-Eisdiele/issues"
+  },
+  "homepage": "https://github.com/UmbertoFalkenhagen/Gis-Eisdiele#readme"
+}
