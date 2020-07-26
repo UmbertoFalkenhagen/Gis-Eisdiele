@@ -2,7 +2,7 @@ import {CompleteOrder} from "./CompleteOrder";
 
 let serverURL: string = "http://localhost:8100";
 
-findAll();
+loadAllOrders();
 
 let table: HTMLTableElement = <HTMLTableElement>document.getElementById("table")!;
 let orderDiv: HTMLDivElement = <HTMLDivElement>document.createElement("orderDiv")!;
@@ -20,7 +20,7 @@ orderDiv.appendChild(tableHead);
 
 let allOrders: CompleteOrder[] = [];
 
-async function findAll(): Promise<void> {
+async function loadAllOrders(): Promise<void> {
     let response: Response = await fetch(serverURL + "/read");
     allOrders = await response.json();
     for (let i = 0; i < allOrders.length; i++) {
@@ -34,8 +34,8 @@ async function findAll(): Promise<void> {
         orderRow.setAttribute("_id", _completeOrder._id);
 
         let topping: string = "";
-        if(_completeOrder._icecream._topping != "NOTHING"){
-           topping =  " with " + _completeOrder._icecream._topping;
+        if (_completeOrder._icecream._topping != "NOTHING") {
+            topping = " with " + _completeOrder._icecream._topping;
         }
 
         let iceCream: HTMLTableCellElement = document.createElement("td");
@@ -56,7 +56,7 @@ async function findAll(): Promise<void> {
         editButton.addEventListener("click", () => {
             sessionStorage.setItem("editorder", JSON.stringify(_completeOrder));
         });
-        editButton.innerHTML = "<a href='edit.html'>Bearbeiten</a>";
+        editButton.innerText = "Bearbeiten";
         editCell.appendChild(editButton);
 
         let deleteCell: HTMLTableCellElement = document.createElement("td");
