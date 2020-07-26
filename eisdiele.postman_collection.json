@@ -30,7 +30,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8100/removeOne?id",
+					"raw": "http://localhost:8100/removeOne?id=5f1c6cc47de108b3541d69a7",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -42,7 +42,32 @@
 					"query": [
 						{
 							"key": "id",
-							"value": null
+							"value": "5f1c6cc47de108b3541d69a7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one specific entry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8100/get?id=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8100",
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ""
 						}
 					]
 				}
