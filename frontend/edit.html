@@ -8,17 +8,15 @@
 </head>
 
 <body>
-<script src="script/IceBall.js" defer></script>
-<script src="script/order.js" defer></script>
-<script src="script/submit.js" defer></script>
+<script> var exports = {}; </script> <!-- https://stackoverflow.com/a/43702240 -->
+<script src="script/edit.js" defer></script>
 <div id="container">
     <div class="content">
         <h1>Bestellung bearbeiten</h1>
         <form action="" id="form">
-            <select id="type" name="type">
-                <option selected value="Waffel">Waffel</option>
-                <option value="Becher">Becher</option>
-
+            <select id="icecontainer" name="icecontainer">
+                <option selected value="sundae">Waffel</option>
+                <option value="bowl">Becher</option>
             </select>
 
             <div id="bowls">
@@ -45,28 +43,37 @@
                         <option value="raspberry">Himbeere</option>
                     </select> <br>
                     <select id="topping" name="topping">
-                        <option selected value>Topping hinzufügen</option>
+                        <option selected value>+</option>
                         <option value="chocosauce">Schokoladensoße</option>
                         <option value="sprinkles">Schokostreusel</option>
+                        <option value="cream">Sahne</option>
+                        <option value="smarties">Smarties</option>
                     </select>
                 </p>
             </div>
             <div>
                 <h2>Persönliche Daten</h2>
                 <label>
+                    Vorname:
                     <input type="text" name="firstName" placeholder="Vorname">
                 </label>
+                <br>
                 <label>
+                    Nachname:
                     <input type="text" name="lastName" placeholder="Nachname">
                 </label>
+                <br>
                 <label>
+                    Telefonnummer:
                     <input type="tel" name="phone" placeholder="Telefonnummer">
                 </label>
+                <br>
                 <label>
+                    Adresse:
                     <input type="text" name="address" placeholder="Adresse">
                 </label>
             </div>
-            <button type="button" id="submitButton">Ändern</button>
+            <button type="button" id="alterButton">Ändern</button>
         </form>
 
     </div>
